@@ -2,7 +2,60 @@
   flex-grow: 1;
   padding: 1rem 4rem;
   background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
 }
-.contactus > h1 {
-  font-weight: 300;
+
+.contactContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  width: 50%;
+}
+
+#contactContainer-left {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 12px;
+  width: 100%;
+  padding: 2rem;
+}
+
+#contactContainer-left > h1 {
+  color: #000;
+  font-size: 3rem;
+  font-weight: 200;
+  letter-spacing: -0.7px;
+  margin-bottom: 2rem;
+}
+#contactContainer-left > label {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.7px;
+  margin-bottom: 0.3rem;
+}
+#contactContainer-left > input {
+  color: #000;
+  margin-bottom: 3rem;
+  border: none;
+  background-color: #f3f3f3;
+  padding: 1.2rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 10px;
+}
+
+#contactContainer-left > button {
+  color: #000;
+  margin-bottom: 3rem;
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 1.2rem 2rem;
+  font-size: 1rem;
+  font-weight: 900;
+  border-radius: 10px;
 }
