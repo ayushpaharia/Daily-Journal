@@ -1,0 +1,8 @@
+.notfound {
+  flex-grow: 1;
+  padding: 1rem 4rem;
+  background-color: #f6f6f6;
+}
+.notfound > h1 {
+  font-weight: 300;
+}

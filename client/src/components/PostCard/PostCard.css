@@ -1,0 +1,33 @@
+.postCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: white;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  box-shadow: 1px 2px 4px rgb(0 0 0 / 0.2);
+}
+.postCard > div > span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  cursor: pointer;
+}
+.postCard > div > span > h3 {
+  flex-grow: 1;
+  font-size: 1.4rem;
+}
+.postCard > p {
+  font-size: 0.85rem;
+}
+.postCard > .author {
+  display: flex;
+  flex-direction: row-reverse;
+  text-align: right;
+  font-style: italic;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #000000;
+}
