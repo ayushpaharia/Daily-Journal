@@ -6,7 +6,6 @@ const _ = require("lodash");
 
 postRouter.post("/getposts", async function (req, res) {
   let { visibility, user } = req.body;
-
   try {
     let filteredPosts;
     if (visibility && user)

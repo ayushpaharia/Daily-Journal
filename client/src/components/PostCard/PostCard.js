@@ -3,7 +3,8 @@ import { Edit3, Trash2 } from "react-feather";
 import { useGlobal } from "../../context/globalContext";
 
 function PostCard({ post }) {
-  const { user, editCurrentPost, deleteCurrentPost } = useGlobal();
+  const { user, editCurrentPost, deleteCurrentPost, triggerRefreshPost } =
+    useGlobal();
 
   return (
     <div className="postCard">
@@ -28,6 +29,7 @@ function PostCard({ post }) {
                 }}
                 onClick={() => {
                   deleteCurrentPost(post);
+                  triggerRefreshPost((prev) => !prev);
                 }}
               />
             </>

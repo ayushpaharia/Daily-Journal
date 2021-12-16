@@ -31,6 +31,8 @@ function Dashboard() {
     createPost,
     postModalState,
     editPost,
+    refreshPostTrigger,
+    triggerRefreshPost,
   } = useGlobal();
 
   async function fetchPublicPosts() {
@@ -39,20 +41,20 @@ function Dashboard() {
     });
   }
   async function fetchMyPosts() {
-    await getPosts({ visibility: "public", user: user._id }).then((posts) => {
+    await getPosts({ user: user._id }).then((posts) => {
       setMyPosts(posts);
     });
   }
 
   useEffect(() => {
     fetchPublicPosts();
-  }, []);
+  }, [refreshPostTrigger]);
 
   useEffect(() => {
     if (user && isLoggedIn) {
       fetchMyPosts();
     }
-  }, [user]);
+  }, [user, refreshPostTrigger]);
 
   return (
     <div className="dashboard">
@@ -131,11 +133,23 @@ function Dashboard() {
             />
           </span>
           {postModalState === "create" ? (
-            <button onClick={() => createPost(postFormValues)}>
+            <button
+              onClick={() => {
+                createPost(postFormValues);
+                setPostModalOpen(false);
+                triggerRefreshPost((prev) => !prev);
+              }}
+            >
               Create Post
             </button>
           ) : (
-            <button onClick={() => editPost(postFormValues)}>
+            <button
+              onClick={() => {
+                editPost(postFormValues);
+                setPostModalOpen(false);
+                triggerRefreshPost((prev) => !prev);
+              }}
+            >
               Save Edited
             </button>
           )}

@@ -36,6 +36,7 @@ export const GlobalProvider = ({ children }) => {
     INITIAL_POST_FORM_VALUES,
   );
   const [isPostModalOpen, setPostModalOpen] = useState(false);
+  const [refreshPostTrigger, triggerRefreshPost] = useState(false);
 
   const addUserToLocal = (uToken) => {
     localStorage.setItem("token", uToken);
@@ -183,13 +184,13 @@ export const GlobalProvider = ({ children }) => {
   };
 
   const deleteCurrentPost = ({ _id }) => {
-    setSelectedPostId(_id);
+    deletePost(_id);
   };
-  const deletePost = async () => {
-    const postId = selectedPostId;
+  const deletePost = async (id) => {
+    console.log(id);
     axios
       .post(
-        `${baseURL}/posts/delete/${postId}`,
+        `${baseURL}/posts/delete/${id}`,
         {},
         {
           headers: {
@@ -247,6 +248,9 @@ export const GlobalProvider = ({ children }) => {
 
     deleteCurrentPost,
     deletePost,
+
+    refreshPostTrigger,
+    triggerRefreshPost,
   };
 
   return (
